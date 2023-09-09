@@ -1,0 +1,86 @@
+<div class="mat-elevation-z8">
+  <button mat-button (click)="showTrailers()">Naczepy</button>
+  <button mat-button (click)="showTrucks()">Ciężarówki</button>
+
+  <table mat-table *ngIf="showingTrailers" [dataSource]="trailers">
+    <!-- Kolumny dla naczep -->
+    <ng-container matColumnDef="registrationNumber">
+      <th mat-header-cell *matHeaderCellDef> Numer rejestracyjny </th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)="navigateToDetailsPage(element)">{{element.registration}}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="inspectionDate">
+      <th mat-header-cell *matHeaderCellDef> Data przeglądu </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="!element.isEditing">{{element.review}}</ng-container>
+        <ng-container *ngIf="element.isEditing">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Akcje </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="!element.isEditing">
+          <button mat-button class="edit-button" (click)="editTrailer(element)">Edytuj</button>
+        </ng-container>
+        <ng-container *ngIf="element.isEditing">
+          <button mat-button class="save-button" (click)="updateTrailer(element)">Zapisz</button>
+          <button mat-button class="cancel-button" (click)="cancelEdit(element)">Anuluj</button>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Wiersze nagłówka i danych dla naczep -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <table mat-table *ngIf="showingTrucks" [dataSource]="trucks">
+    <!-- Kolumny dla ciężarówek -->
+    <ng-container matColumnDef="registrationNumber">
+      <th mat-header-cell *matHeaderCellDef> Numer rejestracyjny </th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)="navigateToDetailsPage(element)">{{element.registration}}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="inspectionDate">
+      <th mat-header-cell *matHeaderCellDef> Data przeglądu </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="!element.isEditing">{{element.review}}</ng-container>
+        <ng-container *ngIf="element.isEditing">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Akcje </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="!element.isEditing">
+          <button mat-button class="edit-button" (click)="editTruck(element)">Edytuj</button>
+        </ng-container>
+        <ng-container *ngIf="element.isEditing">
+          <button mat-button class="save-button" (click)="updateTruck(element)">Zapisz</button>
+          <button mat-button class="cancel-button" (click)="cancelEdit(element)">Anuluj</button>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Wiersze nagłówka i danych dla ciężarówek -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

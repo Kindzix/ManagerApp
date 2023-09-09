@@ -1,0 +1,24 @@
+<div>
+  <h2>Lista Wizyt Usługowych</h2>
+  <button class="back-button" (click)="aaa()">Cofnij</button>
+  <button mat-button (click)="navigateToAddVisitPage()">Dodaj wizytę</button>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Data rozpoczęcia</th>
+      <th>Data zakończenia</th>
+      <th>Opis</th>
+      <th>Ciężarówka</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let visit of visits">
+      <td>{{ visit.startDate | date: 'yyyy-MM-dd' }}</td>
+      <td>{{ visit.endDate | date: 'yyyy-MM-dd' }}</td>
+      <td>{{ visit.description }}</td>
+      <td>{{ visit.truck ? visit.truck.registration : '-' }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="visits!.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25]" aria-label="Select page"></mat-paginator>
+</div>

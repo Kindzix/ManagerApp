@@ -1,0 +1,28 @@
+<div class="mat-elevation-z8">
+  <button mat-button class="button" routerLink="/dodaj-urlop">Dodaj urlop</button>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="od">
+      <th mat-header-cell *matHeaderCellDef class="mat-header-cell">Od</th>
+      <td mat-cell *matCellDef="let osoba" class="mat-cell">{{ osoba.startDate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="do">
+      <th mat-header-cell *matHeaderCellDef class="mat-header-cell">Do</th>
+      <td mat-cell *matCellDef="let osoba" class="mat-cell">{{ osoba.endDate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="employee">
+      <th mat-header-cell *matHeaderCellDef class="mat-header-cell">Imię i nazwisko</th>
+      <td mat-cell *matCellDef="let osoba" class="mat-cell">{{ osoba.employee.firstName + ' ' + osoba.employee.lastName }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['od', 'do', 'employee']"></tr>
+    <tr mat-row *matRowDef="let osoba; columns: ['od', 'do', 'employee']" (click)="openEmployeeDialog(osoba)"></tr>
+  </table>
+
+  <mat-paginator [length]="dataSource.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25]"
+                 aria-label="Select page">
+  </mat-paginator>
+</div>

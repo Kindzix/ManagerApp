@@ -1,0 +1,13 @@
+mat-grid-tile {
+  padding: 8px;
+}
+
+mat-card {
+  height: 400px;
+  width: 400px;
+  padding: 10px;
+}
+
+mat-list-item {
+  padding: 1px;
+}

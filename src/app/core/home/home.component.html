@@ -1,0 +1,62 @@
+<mat-grid-list cols="2" rowHeight="1:1" gutterSize="1px">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Najbliższe przeglądy ciężarówek</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>Przegląd 1</mat-list-item>
+          <mat-list-item>Przegląd 2</mat-list-item>
+          <mat-list-item>Przegląd 3</mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Najbliższe przeglądy naczep</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>Przegląd 1</mat-list-item>
+          <mat-list-item>Przegląd 2</mat-list-item>
+          <mat-list-item>Przegląd 3</mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Najbliższe Urlopy</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let vacation of vacations">
+            {{ vacation.startDate | date }} - {{ vacation.endDate | date }} - {{vacation.employee.firstName + ' ' + vacation.employee.lastName}}
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Zaplanowane wizyty w serwisie</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>Wizyta 1</mat-list-item>
+          <mat-list-item>Wizyta 2</mat-list-item>
+          <mat-list-item>Wizyta 3</mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

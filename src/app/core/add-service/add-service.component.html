@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="form-container">
+    <h2>Dodaj wizytę:</h2>
+    <form>
+      <div class="form-group">
+        <label for="od">Od:</label>
+        <input type="date" id="od" name="od" required [(ngModel)]="visitServiceData.startDate">
+      </div>
+
+      <div class="form-group">
+        <label for="do">Do:</label>
+        <input type="date" id="do" name="do" required [(ngModel)]="visitServiceData.endDate">
+      </div>
+
+      <div class="form-group">
+        <label for="opis">Opis:</label>
+        <textarea id="opis" name="opis" required [(ngModel)]="visitServiceData.description" maxlength="255" rows="4" cols="50"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button class="submit-button" type="submit" (click)="addVisit()">Dodaj</button>
+        <button class="back-button" (click)="goBack()">Cofnij</button>
+      </div>
+    </form>
+  </div>
+</div>

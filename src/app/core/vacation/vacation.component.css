@@ -1,0 +1,48 @@
+/* styles.css */
+
+.mat-elevation-z8 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.button {
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.mat-header-cell, .mat-cell {
+  text-align: left;
+  padding: 8px;
+  white-space: nowrap;
+}
+
+.mat-header-cell {
+  background-color: #f2f2f2;
+}
+
+.mat-cell {
+  cursor: pointer;
+}
+
+.mat-cell:hover {
+  background-color: #ddd;
+}
+
+.mat-paginator {
+  margin-top: 10px;
+}
